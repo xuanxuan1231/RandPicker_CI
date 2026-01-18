@@ -1,4 +1,3 @@
-
 using ClassIsland.Core.Abstractions.Services;
 using ClassIsland.Core.Abstractions.Services.NotificationProviders;
 using ClassIsland.Core.Attributes;
@@ -26,11 +25,16 @@ public class RPNotificationProvider : NotificationProviderBase
 
     private void LessonsServiceOnOnBreakingTime(object? sender, EventArgs e)
     {
+        ShowRpNotification("Hello world!", "下课了！");
+    }
+
+    public void ShowRpNotification(string title, string message)
+    {
         ShowNotification(new NotificationRequest()
         {
-            MaskContent = NotificationContent.CreateTwoIconsMask("Hello world!", factory: content =>
+            MaskContent = NotificationContent.CreateTwoIconsMask(title, message, factory: content =>
             {
-                content.Duration = TimeSpan.FromSeconds(2); // 设置通知显示时间为2秒
+                content.Duration = TimeSpan.FromSeconds(5); // 设置通知显示时间为5秒
             })
         });
     }
