@@ -8,12 +8,7 @@ using ClassIsland.Core.Models.Notification.Templates;
 namespace RandPicker_CI.Services.NotificationProviders;
 
 [NotificationProviderInfo("63B97A6F-BA5C-0C84-C3AD-EE53A9069895", "RandPicker", "PackIconKind.Airplane", "RandPicker 抽选结果的提醒。")]
-[NotificationChannelInfo(
-    "1F77CCAE-3639-2EB5-8E5D-938885FEC5BD", // 提醒渠道 GUID
-    "提醒渠道", // 提醒渠道名称
-    "PackIconKind.Class",  // 提醒渠道图标
-    description:"一个提醒渠道。" // 提醒渠道描述
-)]
+
 public class RPNotificationProvider : NotificationProviderBase
 {
     public ILessonsService LessonsService { get; }
