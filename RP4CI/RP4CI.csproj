@@ -28,8 +28,9 @@
         </None>
     </ItemGroup>
 
+
     <ItemGroup>
-      <Folder Include="Models\" />
+        <ProjectReference Include="..\RP4CI.Shared\RP4CI.Shared.csproj"/>
     </ItemGroup>
 
 </Project>
