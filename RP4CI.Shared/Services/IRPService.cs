@@ -7,5 +7,5 @@ namespace RP4CI.Shared.Services;
 public interface IRPService
 {
     void Notify(NotifyResult result);
-    string Ping();
+    string PingService();
 }

@@ -1,5 +1,3 @@
-
-
 using ClassIsland.Core.Abstractions.Services;
 using ClassIsland.Shared;
 using dotnetCampus.Ipc.CompilerServices.GeneratedProxies;
@@ -9,13 +7,12 @@ using RP4CI.Services.NotificationProviders;
 using RP4CI.Shared.Models;
 using RP4CI.Shared.Services;
 
-
 namespace RP4CI.Services;
 
 public class RPService : IRPService
 {
-    private IIpcService IpcService { get; }
-    public RPNotificationProvider RPNotificationProvider { get; }
+    public IIpcService IpcService { get; }
+    private RPNotificationProvider RPNotificationProvider { get; }
         = IAppHost.Host!.Services.GetServices<IHostedService>().OfType<RPNotificationProvider>().Single();
 
     public RPService(IIpcService ipcService)
@@ -29,7 +26,7 @@ public class RPService : IRPService
         RPNotificationProvider.ShowResult(result);
     }
 
-    public string Ping()
+    public string PingService()
     {
         return "Pong";
     }

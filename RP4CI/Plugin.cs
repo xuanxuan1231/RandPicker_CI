@@ -1,8 +1,8 @@
 ﻿using ClassIsland.Core;
 using ClassIsland.Core.Abstractions;
 using ClassIsland.Core.Attributes;
-using ClassIsland.Core.Controls;
 using ClassIsland.Core.Extensions.Registry;
+using ClassIsland.Shared;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RP4CI.Services;
@@ -17,5 +17,10 @@ public class Plugin : PluginBase
     {
         services.AddNotificationProvider<RPNotificationProvider>();
         services.AddSingleton<RPService>();
+        
+        AppBase.Current.AppStarted += (sender, args) =>
+        {
+            IAppHost.GetService<RPService>();
+        };
     }
 }
