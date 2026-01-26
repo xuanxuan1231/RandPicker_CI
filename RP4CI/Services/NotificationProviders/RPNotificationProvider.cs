@@ -1,4 +1,5 @@
 
+using Avalonia.Threading;
 using ClassIsland.Core.Abstractions.Services.NotificationProviders;
 using ClassIsland.Core.Attributes;
 using ClassIsland.Core.Models.Notification;
@@ -14,32 +15,40 @@ public class RPNotificationProvider : NotificationProviderBase
     private NotificationRequest? _request = null;
     public void ShowResult(NotifyResult result)
     {
-        if (_request != null)
+        // TODO)) 以后再写吧（
+        /*if (_request != null)
         {
             return;
-            // 以后再写吧（
-        }
-        _request = new NotificationRequest();
-        _request.ChannelId = result.PickType == PickType.Person ? new Guid("3C4518B7-D15D-1F9B-4474-1ED02BE2F229") : new Guid("12047D56-FAC7-1830-A535-903F693E0D98");
-        _request.MaskContent = NotificationContent.CreateTwoIconsMask(result.Title, factory: x =>
+        }*/
+        Dispatcher.UIThread.Invoke(() =>
         {
-            x.Duration = TimeSpan.FromSeconds(result.TitleDuration);
+            _request = new NotificationRequest();
+            _request.ChannelId = result.PickType == PickType.Person
+                ? new Guid("3C4518B7-D15D-1F9B-4474-1ED02BE2F229")
+                : new Guid("12047D56-FAC7-1830-A535-903F693E0D98");
+            _request.MaskContent = NotificationContent.CreateTwoIconsMask(result.Title,
+                factory: x =>
+                {
+                    x.Duration = TimeSpan.FromSeconds(result.TitleDuration == 0 ? 2 : result.TitleDuration);
+                });
+            if (result.OverlayType == OverlayType.Rolling)
+            {
+                _request.OverlayContent = NotificationContent.CreateRollingTextContent(result.Overlay,
+                    factory: x =>
+                    {
+                        x.Duration = TimeSpan.FromSeconds(result.OverlayDuration == 0 ? 5 : result.OverlayDuration);
+                    });
+            }
+            else
+            {
+                _request.OverlayContent = NotificationContent.CreateSimpleTextContent(result.Overlay,
+                    factory: x =>
+                    {
+                        x.Duration = TimeSpan.FromSeconds(result.OverlayDuration == 0 ? 5 : result.OverlayDuration);
+                    });
+            }
+            _request.CompletedToken.Register(() => _request = null);
+            ShowNotification(_request);
         });
-        if (result.OverlayType == OverlayType.Rolling)
-        {
-            _request.OverlayContent = NotificationContent.CreateRollingTextContent(result.Overlay, factory: x =>
-            {
-                x.Duration = TimeSpan.FromSeconds(result.OverlayDuration);
-            });
-        }
-        else
-        {
-            _request.OverlayContent = NotificationContent.CreateSimpleTextContent(result.Overlay, factory: x =>
-            {
-                x.Duration = TimeSpan.FromSeconds(result.OverlayDuration);
-            });
-        }
-        ShowNotification(_request);
-
     }
 }
