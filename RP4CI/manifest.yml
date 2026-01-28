@@ -7,7 +7,12 @@ id: RP4CI
 name: RandPicker
 description: 为 RandPicker 提供 ClassIsland 集成服务。
 entranceAssembly: "RP4CI.dll"
-url: https://example.com
+url: https://rp.may.pp.ua/integrations/classisland/
 version: 1.0.0.0
 apiVersion: 2.0.0.0
 author: Wenxuan Shen
+readme: README.md
+icon: icon.png
+repoOwner: xuanxuan1231
+repoName: RandPicker_CI
+assetsRoot: main/RP4CI
