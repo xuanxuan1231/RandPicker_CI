@@ -3,7 +3,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 namespace RP4CI.Shared.Models;
 
 public enum OverlayType { Simple, Rolling }
-public enum PickType { Person, Group }
+public enum PickType { Person, Group, Test }
 
 public partial class NotifyResult : ObservableObject
 {
