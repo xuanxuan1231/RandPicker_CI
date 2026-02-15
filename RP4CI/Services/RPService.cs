@@ -4,8 +4,8 @@ using dotnetCampus.Ipc.CompilerServices.GeneratedProxies;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RP4CI.Services.NotificationProviders;
-using RP4CI.Shared.Models;
-using RP4CI.Shared.Services;
+using RP4CI.Interface.Models;
+using RP4CI.Interface.Services;
 
 namespace RP4CI.Services;
 

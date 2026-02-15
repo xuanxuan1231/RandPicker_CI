@@ -30,7 +30,7 @@
 
 
     <ItemGroup>
-        <ProjectReference Include="..\RP4CI.Shared\RP4CI.Shared.csproj"/>
+        <ProjectReference Include="..\RP4CI.Interface\RP4CI.Interface.csproj" />
     </ItemGroup>
 
 </Project>

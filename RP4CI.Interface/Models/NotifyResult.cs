@@ -1,6 +1,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace RP4CI.Shared.Models;
+namespace RP4CI.Interface.Models;
 
 public enum OverlayType { Simple, Rolling }
 public enum PickType { Person, Group, Test }

@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RP4CI", "RP4CI\RP4CI.csproj", "{9BC770AD-EE74-43E3-B4AE-E4068B2C34B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RP4CI.Shared", "RP4CI.Shared\RP4CI.Shared.csproj", "{E11D7427-6ED8-49F1-B587-F240AAE76160}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RP4CI.Interface", "RP4CI.Interface\RP4CI.Interface.csproj", "{E11D7427-6ED8-49F1-B587-F240AAE76160}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,7 +1,7 @@
 using dotnetCampus.Ipc.CompilerServices.Attributes;
-using RP4CI.Shared.Models;
+using RP4CI.Interface.Models;
 
-namespace RP4CI.Shared.Services;
+namespace RP4CI.Interface.Services;
 
 [IpcPublic]
 public interface IRPService

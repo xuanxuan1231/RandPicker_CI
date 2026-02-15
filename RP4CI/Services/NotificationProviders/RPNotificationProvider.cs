@@ -2,7 +2,7 @@ using Avalonia.Threading;
 using ClassIsland.Core.Abstractions.Services.NotificationProviders;
 using ClassIsland.Core.Attributes;
 using ClassIsland.Core.Models.Notification;
-using RP4CI.Shared.Models;
+using RP4CI.Interface.Models;
 
 namespace RP4CI.Services.NotificationProviders;
 
