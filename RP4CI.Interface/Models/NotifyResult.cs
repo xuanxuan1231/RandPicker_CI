@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace RP4CI.Interface.Models;
@@ -13,4 +14,6 @@ public partial class NotifyResult : ObservableObject
     [ObservableProperty] private int _overlayDuration;
     [ObservableProperty] private OverlayType _overlayType = OverlayType.Simple;
     [ObservableProperty] private PickType _pickType = PickType.Person;
+    [ObservableProperty] private List<PickStudent>? _studentList;
+    [ObservableProperty] private List<PickGroup>? _groupList;
 }
