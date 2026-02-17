@@ -12,7 +12,7 @@ namespace RP4CI.Services.NotificationProviders;
 [NotificationChannelInfo("044C77DA-01C4-2027-6E66-C6CEF9E9E096", "测试通知", "", "RandPicker 测试通知。")]
 public class RPNotificationProvider : NotificationProviderBase
 {
-    private NotificationRequest? _request = null;
+    private NotificationRequest? _request;
     public void ShowResult(NotifyResult result)
     {
         // TODO)) 以后再写吧（
@@ -52,6 +52,7 @@ public class RPNotificationProvider : NotificationProviderBase
                     });
             }
             _request.CompletedToken.Register(() => _request = null);
+            
             ShowNotification(_request);
         });
     }

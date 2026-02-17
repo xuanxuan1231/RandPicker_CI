@@ -5,6 +5,7 @@ using ClassIsland.Core.Extensions.Registry;
 using ClassIsland.Shared;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using RP4CI.Services;
 using RP4CI.Services.NotificationProviders;
 
@@ -18,9 +19,11 @@ public class Plugin : PluginBase
         services.AddNotificationProvider<RPNotificationProvider>();
         services.AddSingleton<RPService>();
         
-        AppBase.Current.AppStarted += (sender, args) =>
+        AppBase.Current.AppStarted += (_, _) =>
         {
             IAppHost.GetService<RPService>();
+            var logger = IAppHost.GetService<ILogger<Plugin>>();
+            logger.LogInformation("RP4CI 插件初始化。");
         };
     }
 }
