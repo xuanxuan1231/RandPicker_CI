@@ -1,0 +1,46 @@
+name: Build CIPX
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Restore
+        run: dotnet restore "./RandPicker_CI.sln"
+
+      - name: Publish CIPX
+        run: dotnet publish -p:CreateCipx=true
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: cipx
+          path: |
+            RP4CI/cipx/*
+          if-no-files-found: error
+
+      - name: Upload to Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          name: RP4CI ${{ github.ref_name }}
+          files: |
+            RP4CI/cipx/*
+
