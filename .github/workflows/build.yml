@@ -41,6 +41,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           name: RP4CI ${{ github.ref_name }}
+          body_path: RP4CI/cipx/checksums.md
           files: |
             RP4CI/cipx/*
 
