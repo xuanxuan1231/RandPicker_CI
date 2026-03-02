@@ -8,7 +8,7 @@ name: RandPicker
 description: 为 RandPicker 提供 ClassIsland 集成服务。
 entranceAssembly: "RP4CI.dll"
 url: https://rp.may.pp.ua/notification/classisland/
-version: 1.0.0.0
+version: 1.0.0.1
 apiVersion: 2.0.0.0
 author: Wenxuan Shen
 readme: README.md
